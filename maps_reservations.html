@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Japan 2026 · Maps & Reservations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;600;700;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f2e9;--paper:#fffdf8;--ink:#24211d;--muted:#756e63;--line:#d9d0c1;--red:#a13e2f;--gold:#9a7332;--charcoal:#24211d;--soft:#efe7da;--shadow:0 5px 18px rgba(45,35,24,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit}
+.topbar{background:var(--charcoal);color:#fffdf8;border-bottom:1px solid rgba(255,255,255,.08)}
+.topbar-inner{max-width:1120px;margin:0 auto;padding:0 22px;min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-size:18px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;text-decoration:none;color:#fff}
+.nav{display:flex;align-items:center;gap:26px;font-size:14px;font-weight:600;letter-spacing:.02em}.nav a{text-decoration:none;color:#f7f2e8;opacity:.82;padding:24px 0 20px;border-bottom:3px solid transparent}.nav a:hover,.nav a.active{opacity:1;color:#fff}.nav a.active{border-bottom-color:var(--red)}
+.wrap{max-width:860px;margin:0 auto;padding:40px 18px 70px}.hero{text-align:center;padding:4px 8px 28px}.eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--red);font-weight:700}.hero h1{font-family:'Shippori Mincho',serif;font-size:clamp(34px,7vw,48px);line-height:1.08;margin:8px 0 9px;font-weight:600}.hero p{max-width:620px;margin:0 auto;color:var(--muted);font-size:14px;line-height:1.6}.rule{width:72px;height:2px;background:var(--red);margin:22px auto 0}
+.quick{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:4px 0 30px}.quick a{text-decoration:none;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:9px 13px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:var(--gold)}
+.section{margin:34px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:13px}.section-head h2{margin:0;font-family:'Shippori Mincho',serif;font-size:25px;font-weight:600}.section-head span{font-family:'JetBrains Mono',monospace;color:var(--muted);font-size:9px;letter-spacing:.09em;text-transform:uppercase}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{background:var(--paper);border:1px solid rgba(185,170,148,.38);border-radius:16px;padding:16px;box-shadow:var(--shadow);min-width:0}.hotel-card{border-top:4px solid var(--gold)}.reservation-card{border-left:4px solid var(--red)}
+.meta{font-family:'JetBrains Mono',monospace;font-size:9px;line-height:1.35;letter-spacing:.1em;text-transform:uppercase;color:var(--red);font-weight:700}.hotel-card .meta{color:var(--gold)}.card h3{font-family:'Shippori Mincho',serif;font-size:19px;line-height:1.25;margin:5px 0 6px}.card p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.address{margin-top:6px!important;color:var(--ink)!important;font-size:12px!important}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:39px;padding:8px 11px;border-radius:9px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:800;letter-spacing:.03em}.map{background:var(--gold);color:white}.reserve{border:1px solid var(--red);color:var(--red);background:#fff}.details{border:1px solid var(--line);color:var(--ink);background:#fff}.btn:hover{filter:brightness(.97)}.btn:focus-visible{outline:3px solid rgba(161,62,47,.28);outline-offset:2px}
+.day-group{margin:18px 0 0}.day-title{display:flex;align-items:center;gap:10px;margin:0 0 9px}.date-badge{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:800;letter-spacing:.08em;color:#fff;background:var(--red);border-radius:999px;padding:5px 8px;white-space:nowrap}.day-title h3{font-family:'Shippori Mincho',serif;font-size:20px;margin:0;font-weight:600}.day-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.note{background:var(--soft);border-left:3px solid var(--gold);border-radius:10px;padding:13px 14px;color:var(--muted);font-size:12.5px;line-height:1.55}.note strong{color:var(--ink)}
+.hub-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.hub{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px;text-decoration:none}.hub strong{display:block;font-size:13px}.hub span{display:block;margin-top:3px;color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700}
+footer{text-align:center;margin-top:44px;font-family:'JetBrains Mono',monospace;font-size:9px;color:#91887b;letter-spacing:.10em;text-transform:uppercase}
+@media(max-width:700px){.topbar-inner{padding:0 14px;gap:12px}.brand{font-size:14px;letter-spacing:.08em}.nav{gap:13px;font-size:11px}.nav a{padding:21px 0 18px}.wrap{padding:30px 14px 52px}.cards,.day-cards{grid-template-columns:1fr}.hub-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head span{display:none}}
+@media(max-width:390px){.brand{font-size:12px}.nav{gap:9px;font-size:10px}.topbar-inner{padding:0 10px}.hero p{font-size:13px}.btn{flex:1 1 auto}.hub-grid{grid-template-columns:1fr 1fr}}
+
+/* Day itinerary dropdown */
+.nav{overflow:visible}
+.day-dropdown{position:relative;color:#f7f2e8}
+.day-dropdown summary{list-style:none;cursor:pointer;color:#f7f2e8;opacity:.82;padding:24px 0 20px;border-bottom:3px solid transparent;font-size:14px;font-weight:600;white-space:nowrap;user-select:none}
+.day-dropdown summary::-webkit-details-marker{display:none}
+.day-dropdown summary:hover,.day-dropdown[open] summary,.day-dropdown.active summary{opacity:1;color:#fff}
+.day-dropdown.active summary{border-bottom-color:var(--red)}
+.day-chevron{font-size:10px;margin-left:3px}
+.day-dropdown[open] .day-chevron{display:inline-block;transform:rotate(180deg)}
+.day-dropdown-menu{position:absolute;z-index:100;top:59px;left:50%;transform:translateX(-50%);width:min(330px,calc(100vw - 24px));padding:8px;background:#fffdf8;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(25,20,15,.22)}
+.nav .day-dropdown-menu a{display:grid;grid-template-columns:58px minmax(0,1fr);gap:10px;align-items:center;padding:9px 10px;border:0;border-radius:8px;color:var(--ink);font-size:12px;line-height:1.2;opacity:1}
+.nav .day-dropdown-menu a:hover,.nav .day-dropdown-menu a.current{background:#f2ebe0;color:var(--ink)}
+.day-date{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--gold)}
+.day-name{font-weight:700;min-width:0}
+@media(max-width:760px){.day-dropdown summary{font-size:12px;padding:21px 0 18px}.day-dropdown-menu{position:fixed;top:62px;left:8px;right:8px;transform:none;width:auto;max-height:70vh;overflow:auto}.nav .day-dropdown-menu a{font-size:12px;padding:10px}}
+@media(max-width:390px){.day-dropdown summary{font-size:11px}}
+</style>
+
+<style id="home-nav-mobile-fix">
+@media(max-width:600px){
+  .modern-site-brand{display:none}
+  .modern-site-links{width:100%;justify-content:space-between;gap:12px}
+  .modern-site-nav{padding-left:14px;padding-right:14px}
+}
+@media(max-width:390px){
+  .modern-site-links{gap:8px}
+  .modern-site-links a,.day-dropdown summary{font-size:11px}
+}
+</style>
+<style id="topbar-home-mobile-fix">
+@media(max-width:600px){.topbar-inner .brand{display:none}.topbar-inner .nav{width:100%;justify-content:space-between;gap:12px}.topbar-inner{padding-left:14px;padding-right:14px}}
+@media(max-width:390px){.topbar-inner .nav{gap:8px}.topbar-inner .nav>a,.topbar-inner .day-dropdown summary{font-size:11px}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner"><a class="brand" href="index.html">Japan 2026</a><nav class="nav" aria-label="Primary"><a href="index.html">Home</a><details class="day-dropdown">
+<summary>Itinerary <span class="day-chevron">▾</span></summary>
+<div class="day-dropdown-menu">
+<a href="index.html#itinerary"><span class="day-date">All Days</span><span class="day-name">Trip Overview</span></a>
+<a href="sept5_final.html"><span class="day-date">Sep 5</span><span class="day-name">Kyoto Birthday</span></a>
+<a href="sept6_final.html"><span class="day-date">Sep 6</span><span class="day-name">Osaka</span></a>
+<a href="sept7_final.html"><span class="day-date">Sep 7</span><span class="day-name">Nara</span></a>
+<a href="sept8_final.html"><span class="day-date">Sep 8</span><span class="day-name">Arashiyama</span></a>
+<a href="sept9_final.html"><span class="day-date">Sep 9</span><span class="day-name">Tokyo Arrival</span></a>
+<a href="sept10_final.html"><span class="day-date">Sep 10</span><span class="day-name">Meiji + Shinjuku</span></a>
+<a href="sept11_final.html"><span class="day-date">Sep 11</span><span class="day-name">TeamLab + Tokyo Tower</span></a>
+<a href="sept12_final.html"><span class="day-date">Sep 12</span><span class="day-name">Flea Market + Odaiba</span></a>
+<a href="sept13_final.html"><span class="day-date">Sep 13</span><span class="day-name">Asakusa + Akihabara</span></a>
+<a href="sept14_final.html"><span class="day-date">Sep 14</span><span class="day-name">Shopping Day</span></a>
+<a href="sept15_final.html"><span class="day-date">Sep 15</span><span class="day-name">Jesse’s Birthday</span></a>
+<a href="sept16_final.html"><span class="day-date">Sep 16</span><span class="day-name">Departure Day</span></a>
+</div>
+</details><a href="flights_master_typography_fixed.html">Flights</a><a class="active" href="maps_reservations.html">Maps</a></nav></div></header>
+<main class="wrap">
+<header class="hero"><div class="eyebrow">Quick Access · Japan 2026</div><h1>Maps & Reservations</h1><p>Tap a map button for directions and use the “Where to find it” note to know which app or email holds the reservation. Private tickets, barcodes, QR codes and access links stay off this public site.</p><div class="rule"></div></header>
+<nav class="quick" aria-label="Page sections"><a href="#hotels">Hotels</a><a href="#reservations">Reservations</a><a href="#hubs">Travel Hubs</a></nav>
+
+<section class="section" id="hotels"><div class="section-head"><h2>Hotels</h2><span>Tap for Google Maps</span></div><div class="cards">
+<article class="card hotel-card"><div class="meta">Osaka · Sept. 4–6</div><h3>MACHIYA HOTEL</h3><p>First Osaka base.</p><p class="address">2-9-21 Nipponbashi, Chuo-ku, Osaka 542-0073</p><div class="actions"><a class="btn map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=2-9-21+Nipponbashi,+Chuo-ku,+Osaka+542-0073,+Japan">Open Map</a></div></article>
+<article class="card hotel-card"><div class="meta">Osaka · Sept. 6–9</div><h3>Onyado Nono Namba</h3><p>Osaka base for Nara and Arashiyama day trips.</p><div class="actions"><a class="btn map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Onyado+Nono+Namba+Natural+Hot+Spring+Osaka">Open Map</a></div></article>
+<article class="card hotel-card"><div class="meta">Tokyo · Sept. 9–16</div><h3>Dash Living Shinjuku</h3><p>Tokyo home base.</p><p class="address">1-15-5 Shinjuku, Shinjuku City, Tokyo 160-0022</p><div class="actions"><a class="btn map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Dash+Living+Shinjuku+Tokyo">Open Map</a></div></article>
+</div></section>
+
+<section class="section" id="reservations"><div class="section-head"><h2>Reservations</h2><span>Quick access in date order</span></div>
+
+<div class="day-group"><div class="day-title"><span class="date-badge">SEP 05</span><h3>Kyoto Birthday</h3></div><div class="day-cards">
+<article class="card reservation-card"><div class="meta">Booked · Kyoto</div><h3>Ookini Kimono + Photoshoot</h3><p>Kimono/yukata rental and 60-minute family photoshoot.</p><p class="address"><strong>Where to find it:</strong> Email · Ookini Kimono booking confirmation</p><div class="actions"><a class="btn map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=559-8+Yugyomaecho+Higashiyama+Kyoto+Japan">Open Map</a></div></article>
+<article class="card reservation-card"><div class="meta">Booked · Kyoto</div><h3>Napule Kyoto Gion</h3><p>Birthday dinner reservation.</p><p class="address"><strong>Where to find it:</strong> Email · Tabelog reservation confirmation</p><div class="actions"><a class="btn map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Napule+Kyoto+Gion">Open Map</a><a class="btn reserve" target="_blank" rel="noopener" href="https://napule-pizza.com/shop/">Official Site</a></div></article>
+</div></div>
+
+<div class="day-group"><div class="day-title"><span class="date-badge">SEP 08</span><h3>Arashiyama</h3></div><div class="day-cards">
+<article class="card reservation-card"><div class="meta">Confirmation unresolved</div><h3>Sagano Romantic Train</h3><p>Intended Torokko Saga departure. Keep the charge issue in mind before repurchasing.</p><div class="actions"><a class="btn map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Torokko+Saga+Station+Kyoto+Japan">Open Map</a><a class="btn reserve" target="_blank" rel="noopener" href="https://www.sagano-kanko.co.jp/en/">Official Site</a></div></article>
+<article class="card reservation-card"><div class="meta">Booked · 7 people</div><h3>Hozugawa River Boat</h3><p>River boat reservation from Kameoka.</p><p class="address"><strong>Where to find it:</strong> Klook app · Bookings → Voucher</p><div class="actions"><a class="btn map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Hozugawa+River+Boat+Ride+Kameoka+Kyoto">Open Map</a><a class="btn reserve" target="_blank" rel="noopener" href="https://www.hozugawakudari.jp/">Official Site</a></div></article>
+</div></div>
+
+<div class="day-group"><div class="day-title"><span class="date-badge">SEP 09</span><h3>Osaka → Tokyo</h3></div><div class="day-cards">
+<article class="card reservation-card"><div class="meta">Booked · 6 people</div><h3>Nozomi Shinkansen</h3><p>Shin-Osaka → Shinagawa. Eric will book his own ticket separately.</p><p class="address"><strong>Where to find it:</strong> SmartEX website or app</p><div class="actions"><a class="btn map" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=Shin-Osaka+Station,+Osaka,+Japan&amp;destination=Shinagawa+Station,+Tokyo,+Japan&amp;travelmode=transit">Open Map</a><a class="btn reserve" target="_blank" rel="noopener" href="https://smart-ex.jp/en/">SmartEX</a></div></article>
+</div></div>
+
+<div class="day-group"><div class="day-title"><span class="date-badge">SEP 09</span><h3>Tokyo Arrival</h3></div><div class="day-cards">
+<article class="card reservation-card"><div class="meta">Booked · Shibuya</div><h3>Shibuya Sky</h3><p>Timed admission.</p><p class="address"><strong>Where to find it:</strong> Saved Shibuya Sky ticket</p><div class="actions"><a class="btn map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shibuya+Sky+Tokyo+Japan">Open Map</a><a class="btn reserve" target="_blank" rel="noopener" href="https://www.shibuya-scramble-square.com/sky/ticket/">Official Tickets</a></div></article>
+<article class="card reservation-card"><div class="meta">Booked · Tokyo Dome</div><h3>Yomiuri Giants Baseball</h3><p>Tokyo Dome game. Pick up the physical tickets at 7-Eleven ahead of time by showing the barcode from the Etix confirmation.</p><p class="address"><strong>Where to find it:</strong> Email · Etix confirmation/barcode</p><div class="actions"><a class="btn map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tokyo+Dome+Tokyo+Japan">Open Map</a><a class="btn reserve" target="_blank" rel="noopener" href="https://www.tokyo-dome.co.jp/en/dome/baseball/giants/">Official Game Info</a></div></article>
+</div></div>
+
+<div class="day-group"><div class="day-title"><span class="date-badge">SEP 11</span><h3>Azabudai Hills</h3></div><div class="day-cards">
+<article class="card reservation-card"><div class="meta">Booked · Tokyo</div><h3>teamLab Borderless</h3><p>Timed admission at Azabudai Hills.</p><p class="address"><strong>Where to find it:</strong> Keep the booking confirmation accessible</p><div class="actions"><a class="btn map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=teamLab+Borderless+Azabudai+Hills+Tokyo">Open Map</a><a class="btn reserve" target="_blank" rel="noopener" href="https://www.teamlab.art/e/tokyo/">Official Tickets</a></div></article>
+</div></div>
+
+<div class="day-group"><div class="day-title"><span class="date-badge">SEP 15</span><h3>Jesse’s Birthday</h3></div><div class="day-cards">
+<article class="card reservation-card"><div class="meta">Sept. 15 · Shinjuku</div><h3>Ginza Steak SHINJUKU</h3><p>Jesse’s birthday lunch · reservation for 2.</p><p class="address"><strong>Where to find it:</strong> Email · ResReserve confirmation</p><div class="actions"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Ginza+Steak+Shinjuku+Keystone+Building+5F+3-28-7+Shinjuku+Tokyo" target="_blank">Open Map</a></div></article>
+<article class="card reservation-card"><div class="meta">Booked · Yokohama</div><h3>Yokohama DeNA BayStars</h3><p>Yokohama Stadium game. Pick up the physical tickets at Lawson using Loppi before the game.</p><p class="address"><strong>Where to find it:</strong> Email · Lawson Ticket / Loppi</p><div class="actions"><a class="btn map" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Yokohama+Stadium+Japan">Open Map</a><a class="btn reserve" target="_blank" rel="noopener" href="https://www.baystars.co.jp/english/">Official Team Site</a></div></article>
+</div></div>
+
+</section>
+
+<section class="section" id="hubs"><div class="section-head"><h2>Travel Hubs</h2><span>Useful stations & airports</span></div><div class="hub-grid">
+<a class="hub" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Shin-Osaka+Station"><strong>Shin-Osaka</strong><span>OPEN MAP</span></a>
+<a class="hub" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Tokyo+Station"><strong>Tokyo Station</strong><span>OPEN MAP</span></a>
+<a class="hub" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Narita+International+Airport+Terminal+1"><strong>Narita · NRT</strong><span>OPEN MAP</span></a>
+<a class="hub" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Haneda+Airport+Terminal+3"><strong>Haneda · HND</strong><span>OPEN MAP</span></a>
+</div></section>
+<footer>Japan 2026 · Quick Access</footer>
+</main>
+
+<script>
+document.addEventListener('click',function(e){document.querySelectorAll('.day-dropdown[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open');});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.day-dropdown[open]').forEach(function(d){d.removeAttribute('open');});});
+</script>
+</body>
+</html>

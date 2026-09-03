@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Japan 2026 · Flight Schedule</title>
+
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Shippori+Mincho:wght@600;700&family=Yuji+Syuku&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ivory:#f7f1e7;
+  --paper:#fffdf8;
+  --ink:#2b2926;
+  --muted:#766e64;
+  --red:#b6422e;
+  --line:#e5d9c8;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ivory);
+  color:var(--ink);
+  font-family:'Zen Kaku Gothic New',sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{
+  max-width:640px;
+  margin:0 auto;
+  padding:34px 18px 18px;
+}
+.hero{
+  padding:48px 20px 30px;
+  text-align:center;
+}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--ink);
+}
+h1{
+  font-family:'Yuji Syuku','Shippori Mincho',serif;
+  font-weight:400;
+  font-size:40px;
+  line-height:1.15;
+  margin:10px 0 0;
+  color:var(--red);
+}
+.subtitle{
+  font-family:'JetBrains Mono',monospace;
+  font-size:14px;
+  color:var(--muted);
+  margin-top:10px;
+}
+.rule{
+  width:64px;
+  height:2px;
+  background:var(--red);
+  margin:18px auto 0;
+}
+.section{
+  margin-bottom:32px;
+}
+.section-title{
+  margin:0 0 14px;
+  font-family:'Shippori Mincho',serif;
+  font-size:22px;
+  font-weight:700;
+  line-height:1.25;
+  color:var(--ink);
+}
+.day{
+  margin-bottom:18px;
+}
+.day-label{
+  margin:0 0 7px 3px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--red);
+}
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-left:4px solid var(--red);
+  border-radius:14px;
+  padding:14px 15px;
+  margin-bottom:9px;
+}
+.person{
+  font-family:'Shippori Mincho',serif;
+  font-size:20px;
+  font-weight:700;
+  line-height:1.25;
+  margin-bottom:9px;
+}
+.airline{
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:2px;
+}
+.route{
+  font-size:14px;
+  line-height:1.45;
+  margin-bottom:2px;
+}
+.time{
+  font-size:12.8px;
+  line-height:1.45;
+  color:var(--muted);
+}
+.leg + .leg{
+  margin-top:11px;
+  padding-top:11px;
+  border-top:1px solid #eee4d7;
+}
+.footer{
+  text-align:center;
+  color:var(--muted);
+  font-size:11px;
+  padding-top:3px;
+}
+.home{
+  max-width:640px;
+  margin:24px auto 40px;
+  padding:0 18px;
+  display:flex;
+  justify-content:center;
+}
+.home a{
+  text-decoration:none;
+  border:1px solid #e1d6c6;
+  background:#fffdf8;
+  color:#2b2926;
+  padding:10px 14px;
+  border-radius:14px;
+  font-weight:700;
+}
+@media(max-width:520px){
+  h1{font-size:36px}
+  .card{padding:13px 14px}
+  .person{font-size:18px}
+  .airline,.route{font-size:13.5px}
+  .time{font-size:12.5px}
+}
+</style>
+
+<style id="modern-site-banner">
+.modern-site-nav{
+  position:relative;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:28px;padding:0 28px;min-height:74px;
+  background:#24211d;color:#fff;
+  font-family:'Zen Kaku Gothic New',Arial,sans-serif;
+}
+.modern-site-brand{
+  color:#fff;text-decoration:none;font-size:18px;font-weight:700;
+  letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;
+}
+.modern-site-links{display:flex;align-items:center;gap:30px}
+.modern-site-links a{
+  position:relative;color:#d8d1c7;text-decoration:none;
+  font-size:14px;font-weight:700;padding:27px 0 25px;
+}
+.modern-site-links a:hover,.modern-site-links a.active{color:#fff}
+.modern-site-links a.active::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+  background:#b84a3a;border-radius:3px 3px 0 0;
+}
+@media(max-width:600px){
+  .modern-site-nav{min-height:64px;padding:0 18px;gap:16px}
+  .modern-site-brand{font-size:15px;letter-spacing:.07em}
+  .modern-site-links{gap:17px}
+  .modern-site-links a{font-size:12px;padding:23px 0 21px}
+}
+@media(max-width:390px){
+  .modern-site-nav{padding:0 13px}
+  .modern-site-brand{font-size:13px}
+  .modern-site-links{gap:12px}
+  .modern-site-links a{font-size:11px}
+}
+
+/* Day itinerary dropdown */
+.modern-site-links{overflow:visible}
+.day-dropdown{position:relative;color:#d8d1c7}
+.day-dropdown summary{list-style:none;cursor:pointer;font-size:14px;font-weight:700;padding:27px 0 25px;color:#d8d1c7;white-space:nowrap;user-select:none}
+.day-dropdown summary::-webkit-details-marker{display:none}
+.day-dropdown summary:hover,.day-dropdown[open] summary,.day-dropdown.active summary{color:#fff}
+.day-dropdown.active summary::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#b84a3a;border-radius:3px 3px 0 0}
+.day-chevron{font-size:10px;margin-left:3px}
+.day-dropdown[open] .day-chevron{display:inline-block;transform:rotate(180deg)}
+.day-dropdown-menu{position:absolute;z-index:100;top:62px;left:50%;transform:translateX(-50%);width:min(330px,calc(100vw - 24px));padding:8px;background:#fffdf8;border:1px solid #d9d0c1;border-radius:12px;box-shadow:0 12px 32px rgba(25,20,15,.22)}
+.day-dropdown-menu a{display:grid!important;grid-template-columns:58px minmax(0,1fr);gap:10px;align-items:center;padding:9px 10px!important;border:0!important;border-radius:8px;color:#24211d!important;text-decoration:none;font-size:12px!important;line-height:1.2;opacity:1!important}
+.day-dropdown-menu a:hover,.day-dropdown-menu a.current{background:#f2ebe0;color:#24211d!important}
+.day-dropdown-menu a.current{box-shadow:inset 3px 0 0 #b84a3a}
+.day-date{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#9a7332}
+.day-name{font-weight:700;min-width:0}
+@media(max-width:600px){.day-dropdown summary{font-size:12px;padding:23px 0 21px}.day-dropdown-menu{position:fixed;top:62px;left:8px;right:8px;transform:none;width:auto;max-height:70vh;overflow:auto}.day-dropdown-menu a{font-size:12px!important;padding:10px!important}}
+@media(max-width:390px){.day-dropdown summary{font-size:11px}.day-dropdown-menu{top:58px}}
+</style>
+
+
+<style id="home-nav-mobile-fix">
+@media(max-width:600px){
+  .modern-site-brand{display:none}
+  .modern-site-links{width:100%;justify-content:space-between;gap:12px}
+  .modern-site-nav{padding-left:14px;padding-right:14px}
+}
+@media(max-width:390px){
+  .modern-site-links{gap:8px}
+  .modern-site-links a,.day-dropdown summary{font-size:11px}
+}
+</style>
+</head>
+
+<body>
+<nav class="modern-site-nav">
+<a class="modern-site-brand" href="index.html">Japan 2026</a>
+<div class="modern-site-links">
+<a href="index.html">Home</a>
+<details class="day-dropdown">
+<summary>Itinerary <span class="day-chevron">▾</span></summary>
+<div class="day-dropdown-menu">
+<a href="index.html#itinerary"><span class="day-date">All Days</span><span class="day-name">Trip Overview</span></a>
+<a href="sept5_final.html"><span class="day-date">Sep 5</span><span class="day-name">Kyoto Birthday</span></a>
+<a href="sept6_final.html"><span class="day-date">Sep 6</span><span class="day-name">Osaka</span></a>
+<a href="sept7_final.html"><span class="day-date">Sep 7</span><span class="day-name">Nara</span></a>
+<a href="sept8_final.html"><span class="day-date">Sep 8</span><span class="day-name">Arashiyama</span></a>
+<a href="sept9_final.html"><span class="day-date">Sep 9</span><span class="day-name">Tokyo Arrival</span></a>
+<a href="sept10_final.html"><span class="day-date">Sep 10</span><span class="day-name">Meiji + Shinjuku</span></a>
+<a href="sept11_final.html"><span class="day-date">Sep 11</span><span class="day-name">TeamLab + Tokyo Tower</span></a>
+<a href="sept12_final.html"><span class="day-date">Sep 12</span><span class="day-name">Flea Market + Odaiba</span></a>
+<a href="sept13_final.html"><span class="day-date">Sep 13</span><span class="day-name">Asakusa + Akihabara</span></a>
+<a href="sept14_final.html"><span class="day-date">Sep 14</span><span class="day-name">Shopping Day</span></a>
+<a href="sept15_final.html"><span class="day-date">Sep 15</span><span class="day-name">Jesse’s Birthday</span></a>
+<a href="sept16_final.html"><span class="day-date">Sep 16</span><span class="day-name">Departure Day</span></a>
+</div>
+</details>
+<a class="active" href="flights_master_typography_fixed.html">Flights</a>
+
+<a href="maps_reservations.html">Maps</a>
+</div>
+</nav>
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">Japan Trip · September 2026</div>
+  <h1>Flight Schedule</h1>
+  <div class="subtitle">Everyone’s flights in one place</div>
+  <div class="rule"></div>
+</header>
+
+<section class="section">
+  <h2 class="section-title">Arrivals to Japan</h2>
+
+  <div class="day">
+    <div class="day-label">Thursday · September 3</div>
+
+    <div class="card">
+      <div class="person">Jonathan</div>
+      <div class="leg">
+        <div class="airline">American Airlines</div>
+        <div class="route">LAX → HND</div>
+        <div class="time">Sep 2 · 1:15 AM → Sep 3 · 4:45 AM</div>
+      </div>
+      <div class="leg">
+        <div class="airline">American Airlines · Operated by Japan Airlines</div>
+        <div class="route">HND → ITM</div>
+        <div class="time">Sep 3 · 10:30 AM → 11:35 AM</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="person">Eric</div>
+      <div class="airline">Airline not listed</div>
+      <div class="route">CLT → NRT</div>
+      <div class="time">Sep 2 · 9:20 AM → Sep 3 · 3:50 PM</div>
+    </div>
+
+    <div class="card">
+      <div class="person">Miguel + Maria</div>
+      <div class="airline">ZIPAIR</div>
+      <div class="route">LAX → NRT</div>
+      <div class="time">Sep 2 · 3:55 PM → Sep 3 · 7:10 PM</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-label">Friday · September 4</div>
+
+    <div class="card">
+      <div class="person">Miguel + Maria</div>
+      <div class="airline">Jetstar Japan</div>
+      <div class="route">NRT → KIX</div>
+      <div class="time">Sep 4 · 12:00 PM → 1:45 PM</div>
+    </div>
+
+    <div class="card">
+      <div class="person">Elizabeth + Paris</div>
+      <div class="leg">
+        <div class="airline">Singapore Airlines</div>
+        <div class="route">LAX → NRT</div>
+        <div class="time">Sep 3 · 2:20 PM → Sep 4 · 5:50 PM</div>
+      </div>
+      <div class="leg">
+        <div class="airline">Peach Aviation</div>
+        <div class="route">NRT → KIX</div>
+        <div class="time">Sep 4 · 8:20 PM → 10:00 PM</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-label">Sunday · September 6</div>
+
+    <div class="card">
+      <div class="person">Carolina</div>
+      <div class="leg">
+        <div class="airline">Alaska Airlines</div>
+        <div class="route">MCI → NRT</div>
+        <div class="time">Sep 5 · 6:45 AM → Sep 6 · 4:00 PM</div>
+      </div>
+      <div class="leg">
+        <div class="airline">Peach Aviation</div>
+        <div class="route">NRT → KIX</div>
+        <div class="time">Sep 6 · 8:20 PM → 10:00 PM</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-label">Thursday · September 10</div>
+
+    <div class="card">
+      <div class="person">Jesse</div>
+      <div class="airline">Delta Air Lines</div>
+      <div class="route">LAX → HND</div>
+      <div class="time">Sep 9 · 10:20 AM → Sep 10 · 2:00 PM</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-label">Saturday · September 12</div>
+
+    <div class="card">
+      <div class="person">Joe</div>
+      <div class="airline">Singapore Airlines</div>
+      <div class="route">LAX → NRT</div>
+      <div class="time">Sep 11 · 2:20 PM → Sep 12 · 5:50 PM</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Departures from Japan</h2>
+
+  <div class="day">
+    <div class="day-label">Thursday · September 10</div>
+
+    <div class="card">
+      <div class="person">Miguel + Maria</div>
+      <div class="airline">ZIPAIR</div>
+      <div class="route">NRT → LAX</div>
+      <div class="time">Sep 10 · 7:35 PM → 1:55 PM</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-label">Friday · September 11</div>
+
+    <div class="card">
+      <div class="person">Eric</div>
+      <div class="airline">Airline not listed</div>
+      <div class="route">NRT → CLT</div>
+      <div class="time">Sep 11 · 5:25 PM → 8:57 PM</div>
+    </div>
+
+    <div class="card">
+      <div class="person">Jonathan</div>
+      <div class="airline">ZIPAIR</div>
+      <div class="route">NRT → LAX</div>
+      <div class="time">Sep 11 · 7:35 PM → 1:55 PM</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-label">Sunday · September 13</div>
+
+    <div class="card">
+      <div class="person">Carolina</div>
+      <div class="airline">Alaska Airlines</div>
+      <div class="route">NRT → MCI</div>
+      <div class="time">Sep 13 · 6:00 PM → 7:03 PM</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-label">Wednesday · September 16</div>
+
+    <div class="card">
+      <div class="person">Jesse</div>
+      <div class="airline">Delta Air Lines</div>
+      <div class="route">HND → LAX</div>
+      <div class="time">Sep 16 · 4:35 PM → 10:53 AM</div>
+    </div>
+
+    <div class="card">
+      <div class="person">Elizabeth + Paris + Joe</div>
+      <div class="airline">Singapore Airlines</div>
+      <div class="route">NRT → LAX</div>
+      <div class="time">Sep 16 · 6:40 PM → 12:50 PM</div>
+    </div>
+  </div>
+</section>
+
+<div class="footer">Japan 2026 · Quick Flight Reference</div>
+</div>
+
+<div class="home">
+  <a href="index.html">⌂ Home</a>
+</div>
+
+
+<script>
+document.addEventListener('click',function(e){document.querySelectorAll('.day-dropdown[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open');});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.day-dropdown[open]').forEach(function(d){d.removeAttribute('open');});});
+</script>
+</body>
+</html>
